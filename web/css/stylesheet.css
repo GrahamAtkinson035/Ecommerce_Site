@@ -7,4 +7,187 @@ and open the template in the editor.
     Created on : May 3, 2016, 9:55:08 PM
     Author     : Austen
 */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 850px;
+    text-align: center;
+    margin: 20px auto;
+}
 
+#main { background: #eee }
+
+#header {
+    height: 250px;
+    background: #aaa;
+}
+
+#footer {
+    height: 5%;
+    position: absolute;
+    bottom: 0;
+    clear: left;
+    background: #aaa;
+}
+
+.top {
+    position:absolute;
+    left:0; right:0;
+    height: 15%;
+}
+
+.left {
+    position:absolute;
+    left:0; top:20%; bottom:0;
+    width: 15%;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    box-shadow: 0 6px 30px 5px rgb(202, 225, 255), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    background:#fcfcfc;
+    border:2px solid #ccc;
+    border-bottom:2px solid #bbb;
+    border-top:2px solid #ddd;
+}
+
+.main {
+    position: absolute;
+    left:20%; top:20%; right:20%;
+    border: 1px solid black;
+    border-radius: 1em;
+    box-shadow: 0 6px 30px 5px rgb(202, 225, 255), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    background:#fcfcfc;
+    border:2px solid #ccc;
+    border-bottom:2px solid #bbb;
+    border-top:2px solid #ddd;
+}
+
+.right{
+    position:absolute;
+    top: 20%; right:0; bottom:0;
+    width: 15%;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    box-shadow: 0 6px 30px 5px rgb(202, 225, 255), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    background:#fcfcfc;
+    border:2px solid #ccc;
+    border-bottom:2px solid #bbb;
+    border-top:2px solid #ddd;
+}
+
+#logo {
+    height: 95px;
+    width: 275px;
+    float: left;
+    margin-left: 30px;
+    margin-top: -20px;
+}
+
+#logoText {
+    float: left;
+    margin: 20px 0 0 70px;
+    /* font styles apply to text within alt tags */
+    font-family: 'American Typewriter', Courier, monospace;
+    font-size: 50px;
+    color: #333;
+}
+
+#widgetBar {
+    height: 50px;
+    width: 850px;
+    float: right;
+    background: #ccc;
+}
+
+.headerWidget {
+    width: 194px;
+    margin: 20px 2px;
+    font-size: small;
+    float: right;
+    line-height: 25px;
+    background: #aaa;
+}
+
+.categoryBox {
+    height: 176px;
+    width: 212px;
+    margin: 21px 14px 6px;
+    float: inherit;
+    background: #ccc;
+}
+
+.categoryLabelText {
+    line-height: 150%;
+    font-size: x-large;
+}
+
+hr {
+    border: 0;
+    background-color: #333;
+    height: 1px;
+    margin: 0 25px;
+    width: 300px;
+}
+
+table{
+    border-spacing: 10px;
+    margin: 0 auto !important;
+    float: none !important;
+}
+
+.col-md-10 {
+    left:1.25%;
+}
+
+#shadow {
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+}
+
+tr {
+    border:none;
+}
+
+.menu {
+    position:absolute;
+    bottom:0;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+#searchBar{
+    position: absolute;
+    left: 25%; top:35%;
+}
+
+#cart{
+    position: absolute;
+    top: 35%; right: 5%;
+}
+
+#searchingBtn {
+    
+}

@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/index.jsp</file>
             <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/css/stylesheet.css</file>
-            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/checkout.jsp</file>
-            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/confirmorder.jsp</file>
-            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/cart.jsp</file>
+            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/index.jsp</file>
+            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/WEB-INF/view/cart.jsp</file>
+            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/src/java/controller/ControllerServlet.java</file>
+            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/upload.jsp</file>
+            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/WEB-INF/view/confirmorder.jsp</file>
+            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/Message.jsp</file>
+            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/src/java/controller/FileUploadDBServlet.java</file>
+            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/WEB-INF/web.xml</file>
+            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/WEB-INF/view/checkout.jsp</file>
+            <file>file:/Users/Austen/NetBeansProjects/EcommerceSite/web/WEB-INF/view/category.jsp</file>
         </group>
     </open-files>
 </project-private>
