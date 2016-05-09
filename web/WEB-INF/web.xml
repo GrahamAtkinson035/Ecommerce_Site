@@ -22,8 +22,18 @@
         <jsp-property-group>
             <url-pattern>/index.jsp</url-pattern>
             <url-pattern>/WEB-INF/view/*</url-pattern>
+            <include-prelude>/WEB-INF/jspf/header.jsp</include-prelude>
         </jsp-property-group>
     </jsp-config>
+<!--    <servlet>
+        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>ControllerServlet.java</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/WEB-INF/view/*</url-pattern>
+    </servlet-mapping>-->
     <resource-ref>
         <description>connects to snaplist database for app</description>
         <res-ref-name>jdbc/snaplist</res-ref-name>
@@ -31,4 +41,4 @@
         <res-auth>Container</res-auth>
         <res-sharing-scope>Shareable</res-sharing-scope>
     </resource-ref>
-</web-app>
+    </web-app>

@@ -7,53 +7,6 @@
     Created on : May 3, 2016, 9:53:19 PM
     Author     : Austen
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <div class="top">
-            <div id="photo">
-                <a href="index.jsp">
-                    <img src="images/logodesign.jpg" id="logo" alt="Snap Exchange">
-                </a>
-            </div>
-            <div id="searchBar">
-                Search: <input type="text" name="search" value="" size="100" />
-                <button type="button" class="btn" id="searchingBtn">
-                    <snap class="glyphicon glyphicon-search"></snap>
-                </button>
-            </div>
-            <div id="cart">
-                <form name="shoppingcart" action="WEB-INF/view/cart.jsp">
-                    <button type="button" class="btn">
-                        <span class="glyphicon glyphicon-shopping-cart" type="submit" ></span> View Cart
-                    </button>
-                </form>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="index.jsp">Home</a></li>
-                    <li><a href="category.jsp">Categories</a></li>
-                    <li><a href="upload.jsp">Sell Item</a></li>
-                    <li><a href="contact.jsp">Contact Us</a></li>
-                    <li><a href="account.jsp">My Account</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="left">
-            <h4>Sell Your Own Item!</h4>
-            <br>
-            <br>
-            <p>Click <a href="upload.jsp">here</a> if you would like to upload your own item to sell to others near you!</p>
-        </div>
         <div class="main">
 
             <div class="container">
@@ -74,22 +27,25 @@
                 %>
                 <tr>
                     <td class="col-md-3" align="center" id="shadow">
-                        <img src="GettingImage?img_id=<%=result.getString("item_id")%>" width="200" height="200" align="center"/>
-                        <p><strong><%=result.getString("title")%></strong></p>
-                        <p><%=result.getString("price")%></p>
+                        <a href="<%=request.getContextPath()%>/item?id=<%=result.getString("item_id")%>" id="noblue"><img src="GettingImage?img_id=<%=result.getString("item_id")%>" width="200" height="150" align="center"/>
+                        <h4><strong><%=result.getString("title")%></strong></h4>
+                        <p>$ <%=result.getString("price")%></p></a>
                     </td>
                 <%
                             i++;
                         }
-                        else if(i%3 == 0){
+                        else if(i%2 == 0){
                 %>
+                    <td class="col-md-1"></td>
+                    <td class="col-md-3" align="center" id="shadow">
+                        <a href="<%=request.getContextPath()%>/item?id=<%=result.getString("item_id")%>" id="noblue"><img src="GettingImage?img_id=<%=result.getString("item_id")%>" width="200" height="150" />
+                            <h4><strong><%=result.getString("title")%></strong></h4>
+                            <p>$ <%=result.getString("price")%></p>
+                        </a>
+                    </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td></td><td></td><td></td><td></td><td></td>
                 </tr>
 
 
@@ -99,9 +55,9 @@
                 %>
                     <td class="col-md-1"></td>
                     <td class="col-md-3" align="center" id="shadow">
-                        <img src="GettingImage?img_id=<%=result.getString("item_id")%>" width="200" height="200" align="center"/>
-                        <p><strong><%=result.getString("title")%></strong></p>
-                        <p>$ <%=result.getString("price")%></p>
+                        <a href="<%=request.getContextPath()%>/item?id=<%=result.getString("item_id")%>" id="noblue"><img src="GettingImage?img_id=<%=result.getString("item_id")%>" width="200" height="150" align="center"/>
+                        <h4><strong><%=result.getString("title")%></strong></h4>
+                        <p>$ <%=result.getString("price")%></p></a>
                     </td>
                 <%          i++;
                         } 
@@ -109,6 +65,9 @@
 
                 <% //i=0; }
                 } %>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td>
             </tr>
                 </tbody>
             </table>
@@ -122,7 +81,7 @@
                     ResultSet rs = ps.executeQuery();
                     while(rs.next()){
                         %>
-                        <a><%=rs.getString("name")%>(<%=rs.getString("total")%>)</a>
+                        <a href="<%=request.getContextPath()%>/category?c_id=<%=rs.getString("category_id")%>"><%=rs.getString("name")%>(<%=rs.getString("total")%>)</a>
                         <br>
                         <br>
                         <%

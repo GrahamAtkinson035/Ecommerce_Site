@@ -4,6 +4,7 @@
     Author     : Austen
 --%>
 
+<%@page import="classes.ShoppingCart"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%
+            synchronized (session){
+                ShoppingCart cart = (ShoppingCart)session.getAttribute("Cart");
+                if (cart == null) // new sesssion, just create a cart
+                    {
+                        cart = new ShoppingCart();
+                        session.setAttribute("Cart", cart);
+                    }
+                cart.displayAll(out);
+            }
+        %>
+        <div class="right">
+        <a href="<%=request.getContextPath()%>/checkout"><input type="submit" value="Checkout" name="checkout" />
+        </div>
     </body>
 </html>

@@ -188,6 +188,11 @@ li a:hover {
     top: 35%; right: 5%;
 }
 
-#searchingBtn {
-    
+#noblue {
+    color: #111;
+}
+
+#description{
+    position: absolute;
+    left:0;
 }
