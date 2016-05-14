@@ -39,7 +39,7 @@
             <h4>Similar Items</h4>
             <br>
             <%
-                PreparedStatement ps = conn.prepareStatement("SELECT * FROM items WHERE category_id = (SELECT category_id FROM items WHERE item_id = ?) AND item_id != ?;"); 
+                PreparedStatement ps = conn.prepareStatement("SELECT * FROM items WHERE category_id = (SELECT category_id FROM items WHERE item_id = ?) AND item_id != ? AND item_id NOT IN (SELECT item_id FROM purchased_items);"); 
                 ps.setString(1, id);
                 ps.setString(2, id);
                 ResultSet rs = ps.executeQuery();

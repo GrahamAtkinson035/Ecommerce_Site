@@ -17,13 +17,13 @@ import javax.servlet.jsp.JspWriter;
  */
 public class ShoppingCart {
     public ArrayList<Item> itemlist = new ArrayList<Item>();  // list of Items in the cart
-    int numberOfItems;
-    public int total;
+    public int numberOfItems;
+    public double total;
     
     public ShoppingCart() {
         itemlist = new ArrayList<Item>();
         numberOfItems = 0;
-        total = 0;
+        total = 0.0;
 
     }
     
@@ -39,7 +39,7 @@ public class ShoppingCart {
     public void empty() {
         itemlist.clear();
         numberOfItems = 0;
-        total = 0;
+        total = 0.0;
     }
     //
     // add an item to the cart
@@ -54,11 +54,13 @@ public class ShoppingCart {
             {
                 item.quantity += anitem.quantity; // yes, just update the quantity
                 numberOfItems += item.quantity;
+                total += item.price;
                 return;
             }
         }
         itemlist.add(anitem); // no, add it as a new item
         numberOfItems += anitem.quantity;
+        total += anitem.price;
     }
 
    //
@@ -76,7 +78,7 @@ public class ShoppingCart {
             out.println("<table class='table'");
             out.println("<tr><th class='text-center'></th><th class='text-center'>Name</th><th class='text-center'>Price</th><th class='text-center'>Quantity</th><th class='text-center'>Total</th></tr>");
 
-            double total = 0;
+            double total = 0.0;
       // 
             // output one item at a time from the cart, one item to a row table
             //

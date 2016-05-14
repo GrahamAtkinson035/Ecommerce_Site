@@ -11,9 +11,9 @@ package classes;
  */
 public class Item {
     public String id = "";
-    String name = "";
+    public String name = "";
     public int quantity = 0;
-    double price = 0;
+    public double price = 0;
     
     public Item()
     {

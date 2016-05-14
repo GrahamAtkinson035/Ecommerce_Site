@@ -36,7 +36,7 @@
                     
             }
             else{
-                state = conn.prepareStatement("SELECT * FROM items WHERE category_id=?");
+                state = conn.prepareStatement("SELECT * FROM items WHERE category_id=? AND item_id NOT IN (SELECT item_id FROM purchased_items)");
                 state.setString(1, c_id);
                 PreparedStatement ps = conn.prepareStatement("SELECT name FROM category WHERE id=?");
                 ps.setString(1, c_id);
@@ -130,6 +130,7 @@
                 }
             }
             %>
+            <tr><td></td></tr>
         </tbody></table>
         </div></div></div></div>
         <div class="right">
@@ -137,7 +138,7 @@
             <br>
             <%
                 Statement st = conn.createStatement();
-                ResultSet result = st.executeQuery("SELECT * FROM items ORDER BY last_update DESC LIMIT 5;");
+                ResultSet result = st.executeQuery("SELECT * FROM items WHERE item_id NOT IN (SELECT item_id FROM purchased_items) ORDER BY last_update DESC LIMIT 5;");
                 while (result.next()){
                     %>
                     <a href="<%=request.getContextPath()%>/item?id=<%=result.getString("item_id")%>" id="noblue"><img src="GettingImage?img_id=<%=result.getString("item_id")%>" width="100" height="100" />
@@ -147,6 +148,11 @@
                     <%
                 }
             %>
+            <style>
+                .right{
+                    bottom:auto;
+                }
+            </style>
         </div>
     </body>
 </html>

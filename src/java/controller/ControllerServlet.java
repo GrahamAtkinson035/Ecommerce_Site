@@ -24,7 +24,7 @@ import session.CategoryFacade;
  *
  * @author Austen
  */
-@WebServlet(name="/controller", urlPatterns={"/category", "/viewCart", "/addToCart", "/updateCart", "/checkout", "/purchase", "/item", "/search", "/upload"})
+@WebServlet(name="/controller", urlPatterns={"/category", "/viewCart", "/addToCart", "/updateCart", "/checkout", "/purchase", "/item", "/search", "/upload", "/contact"})
 public class ControllerServlet extends HttpServlet {
     private ShoppingCart cart;
     /**
@@ -57,6 +57,8 @@ public class ControllerServlet extends HttpServlet {
 //            }
 
         // if cart page is requested
+        } else if (userPath.equals("/contact")){
+        
         } else if (userPath.equals("/viewCart")) {
             // TODO: Implement cart page request
 

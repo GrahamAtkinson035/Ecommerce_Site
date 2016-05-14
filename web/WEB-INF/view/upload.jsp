@@ -4,6 +4,8 @@
     Author     : Austen
 --%>
 
+<%@page import="java.sql.*"%>
+<%@page import="java.io.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,9 +14,15 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div class="main">
+            <h3>Add Your Own Item</h3><br>
+        <div class="container">
+        <div class="row">
+        <div class ="col-md-10">
         <center>
             <form action="uploadServlet" method="POST" enctype="multipart/form-data">
                 <table border="0">
+                    <tbody>
                     <tr>
                         <td>Item: </td>
                         <td><input type="text" name="title" value="" size="50" /></td>
@@ -62,8 +70,34 @@
                             <input type="submit" value="Upload" />
                         </td>
                     </tr>
+                    <tr><td></td></tr>
+                    </tbody>
                 </table>
             </form>
         </center>
+        </div></div></div></div>
+        <div class="right">
+            <h4>Recently Posted Items</h4>
+            <br>
+            <%  
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/snaplist", "root", "");
+                Statement st = conn.createStatement();
+                ResultSet result = st.executeQuery("SELECT * FROM items WHERE item_id NOT IN (SELECT item_id FROM purchased_items) ORDER BY last_update DESC LIMIT 5;");
+                while (result.next()){
+                    %>
+                    <a href="<%=request.getContextPath()%>/item?id=<%=result.getString("item_id")%>" id="noblue"><img src="GettingImage?img_id=<%=result.getString("item_id")%>" width="100" height="100" />
+                        <h6><strong><%=result.getString("title")%></strong></h6>
+                        <p>$ <%=result.getString("price")%></p>
+                    </a>
+                    <%
+                }
+            %>
+            <style>
+                .right{
+                    bottom:auto;
+                }
+            </style>
+        </div>
     </body>
 </html>

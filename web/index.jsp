@@ -19,7 +19,7 @@
                     Connection conn = null;
                     Class.forName("com.mysql.jdbc.Driver");
                     conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/snaplist", "root", "");
-                    PreparedStatement state = conn.prepareStatement("SELECT * FROM items ORDER BY last_update DESC LIMIT 15;");
+                    PreparedStatement state = conn.prepareStatement("SELECT * FROM items WHERE item_id NOT IN (SELECT item_id FROM purchased_items) ORDER BY last_update DESC LIMIT 15;");
                     ResultSet result = state.executeQuery();
                     int i=0;
                     while(result.next()){

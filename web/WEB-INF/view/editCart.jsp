@@ -56,7 +56,7 @@
                 } catch (Exception ex) {
                     out.println(ex.toString()); // show the exception for now
                 }
-            } else if (action.equals("Empty")) {
+            } else if (action.equals("Empty Cart")) {
                 synchronized (session) // lock session protect this from multiple threads
                 {
                     ShoppingCart cart = (ShoppingCart) session.getAttribute("Cart");
@@ -66,7 +66,8 @@
                         session.setAttribute("Cart", cart);
                     }
                     cart.empty(); // cart uses ArrayList which is not thread safe so we locked
-                    cart.display(out); // tell the cart to send its contents to the browser
+                    out.println("<div class='main'><h3>Cart Emptied!</h3>");
+                    out.println("<br><a href='/EcommerceSite/index.jsp' id='noblue'><input name='redirect' value='Continue Shopping' type='submit'/></a><br></div>");
                 } // end synchronization lock  
             }
         %>
@@ -77,7 +78,7 @@
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/snaplist", "root", "");
                 Statement st = conn.createStatement();
-                ResultSet result = st.executeQuery("SELECT * FROM items ORDER BY last_update DESC LIMIT 5;");
+                ResultSet result = st.executeQuery("SELECT * FROM items WHERE item_id NOT IN (SELECT item_id FROM purchased_items) ORDER BY last_update DESC LIMIT 5;");
                 while (result.next()){
                     %>
                     <a href="<%=request.getContextPath()%>/item?id=<%=result.getString("item_id")%>" id="noblue"><img src="GettingImage?img_id=<%=result.getString("item_id")%>" width="100" height="100" />
@@ -87,6 +88,11 @@
                     <%
                 }
             %>
+            <style>
+                .right{
+                    bottom:auto;
+                }
+            </style>
         </div>
     </body>
 </html>

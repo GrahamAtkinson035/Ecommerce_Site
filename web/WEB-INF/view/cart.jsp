@@ -22,10 +22,15 @@
                         session.setAttribute("Cart", cart);
                     }
                 cart.displayAll(out);
-            }
         %>
         <div class="right">
-        <a href="<%=request.getContextPath()%>/checkout"><input type="submit" value="Checkout" name="checkout" />
+            <form action="<%=request.getContextPath()%>/updateCart" name="empty" method="POST">
+                <input type="submit" value="Empty Cart" name="action" />
+            </form>
+        <a href="<%=request.getContextPath()%>/checkout" id="noblue"><input type="submit" value="Checkout" name="checkout" />
+            <%
+            }
+        %>
         </div>
     </body>
 </html>
